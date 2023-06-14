@@ -39,7 +39,7 @@
                 <a v-for="item in navigation" :key="item.name" :href="item.href" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
               </div>
               <div class="py-6">
-                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Language</a>
               </div>
             </div>
           </div>
@@ -54,8 +54,9 @@
   import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
   import Logo from './icons/Logo.vue'
   const navigation = [
-    { name: 'Home', href: '#' },
+    { name: 'Home', href: '/' },
     { name: 'Map', href: '#' },
+    { name: 'Search', href: '#' },
     { name: 'Saved', href: '#' },
   ]
   
