@@ -1,14 +1,5 @@
 <template>
-    <!-- <section class="featuredproperty" id="featuredproperty">
-      featured properties part of the homepage
 
-      <h1 class="heading"><span>All</span> Stones</h1>
-
-      <div class="box-container" id="box-container">
-        <div v-for="stone in stones" :key="stone.id" v-html="createStoneHtml(stone)"></div>
-
-      </div>
-    </section> -->
     <div class="flex items-center justify-center min-h-screen container max-auto">
       <!-- grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
