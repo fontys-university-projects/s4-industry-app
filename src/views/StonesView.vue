@@ -13,41 +13,17 @@
       <!-- grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- card -->
-        <div class="card">
+        <div class="card" v-for="stone in stones" :key="stone.name">
           <div class="p-5 flex flex-col">
             <div class="rounded-xl overflow-hidden">
-              <img src="./src/assets/logo.svg" alt=""/>
+              <img :src="stone.image" alt=""/>
             </div>
-            <h5 class="text-2xl md:text-3xl font-medium mt-3"> name of the stone</h5>
-            <p class="text-slate-500 text-lg mt-3"> address goes here</p>
+            <h5 class="text-2xl md:text-3xl font-medium mt-3">{{ stone.name }} </h5>
+            <p class="text-slate-500 text-lg mt-3"> {{ stone.address }}</p>
             <a @click="open = true"  href="#" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">view details</a>
           </div>
         </div>
         <!-- end card -->
-        <!-- card 2 -->
-        <div class="card">
-          <div class="p-5 flex flex-col">
-            <div class="rounded-xl overflow-hidden">
-              <img src="./src/assets/logo.svg" alt=""/>
-            </div>
-            <h5 class="text-2xl md:text-3xl font-medium mt-3"> name of the stone</h5>
-            <p class="text-slate-500 text-lg mt-3"> address goes here</p>
-            <a @click="open = true"  href="#" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">view details</a>
-          </div>
-        </div>
-        <!-- end card 2 -->
-                <!-- card 3 -->
-                <div class="card">
-          <div class="p-5 flex flex-col">
-            <div class="rounded-xl overflow-hidden">
-              <img src="./src/assets/logo.svg" alt=""/>
-            </div>
-            <h5 class="text-2xl md:text-3xl font-medium mt-3"> name of the stone</h5>
-            <p class="text-slate-500 text-lg mt-3"> address goes here</p>
-            <a @click="open = true"  href="#" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">view details</a>
-          </div>
-        </div>
-        <!-- end card 3 -->
       </div>
     </div>
     
@@ -87,14 +63,29 @@
   
   
   <script setup>
-  const files = [
+  const stones = [
     {
-      title: 'IMG_4985.HEIC',
-      size: '3.9 MB',
-      source:
+      name: 'Alexander',
+      address: '1234 Main St, San Francisco, CA 94123',
+      link:"",
+      image:
         'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
     },
-    // More files...
+    {
+      name: 'Alexander',
+      address: '1234 Main St, San Francisco, CA 94123',
+      link:"",
+      image:
+        'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+    },
+    {
+      name: 'Alexander',
+      address: '1234 Main St, San Francisco, CA 94123',
+      link:"",
+      image:
+        'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+    },
+
   ]
   import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
