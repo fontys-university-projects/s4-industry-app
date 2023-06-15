@@ -11,7 +11,7 @@
             </div>
             <h5 class="text-2xl md:text-3xl font-medium mt-3">{{ stone.name }} </h5>
             <p class="text-slate-500 text-lg mt-3"> {{ stone.address }}</p>
-            <a @click="open = true"  href="#" class="text-center bg-brown text-color py-2 rounded-lg font-semibold mt-4 hover:bg-brown-light focus:scale-95 transition-all duration-200 ease-out">view details</a>
+            <a @click="open = true"  href="#" class="text-center bg-brown text-color py-2 rounded-lg font-semibold mt-4 hover:bg-brown-light focus:scale-95 transition-all duration-200 ease-out">View Details</a>
           </div>
         </div>
         <!-- end card -->
