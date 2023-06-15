@@ -9,6 +9,48 @@
 
       </div>
     </section> -->
+    <div class="flex items-center justify-center min-h-screen container max-auto">
+      <!-- grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- card -->
+        <div class="card">
+          <div class="p-5 flex flex-col">
+            <div class="rounded-xl overflow-hidden">
+              <img src="./src/assets/logo.svg" alt=""/>
+            </div>
+            <h5 class="text-2xl md:text-3xl font-medium mt-3"> name of the stone</h5>
+            <p class="text-slate-500 text-lg mt-3"> address goes here</p>
+            <a @click="open = true"  href="#" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">view details</a>
+          </div>
+        </div>
+        <!-- end card -->
+        <!-- card 2 -->
+        <div class="card">
+          <div class="p-5 flex flex-col">
+            <div class="rounded-xl overflow-hidden">
+              <img src="./src/assets/logo.svg" alt=""/>
+            </div>
+            <h5 class="text-2xl md:text-3xl font-medium mt-3"> name of the stone</h5>
+            <p class="text-slate-500 text-lg mt-3"> address goes here</p>
+            <a @click="open = true"  href="#" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">view details</a>
+          </div>
+        </div>
+        <!-- end card 2 -->
+                <!-- card 3 -->
+                <div class="card">
+          <div class="p-5 flex flex-col">
+            <div class="rounded-xl overflow-hidden">
+              <img src="./src/assets/logo.svg" alt=""/>
+            </div>
+            <h5 class="text-2xl md:text-3xl font-medium mt-3"> name of the stone</h5>
+            <p class="text-slate-500 text-lg mt-3"> address goes here</p>
+            <a @click="open = true"  href="#" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">view details</a>
+          </div>
+        </div>
+        <!-- end card 3 -->
+      </div>
+    </div>
+    
     <TransitionRoot as="template" :show="open">
     <Dialog as="div" class="relative z-10" @close="open = false">
       <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
