@@ -26,10 +26,10 @@
           <p class="mt-6 text-lg leading-8 text-gray-300">
             ‘Our Stolpersteine project is a living project, the memories are not lost’
           </p>
-          <div class="mt-10 flex items-center justify-center gap-x-6">
+          <div class="mt-10 flex items-center1 justify-center1 gap-x-6">
             <a
               href="#"
-              class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+              class="rounded-md bg-brown px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brown-light focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
               @click="redirectToFeatures"
             >
               Get to Map
@@ -55,3 +55,12 @@
     </div>
   </div>
 </template>
+
+<style>
+.justify-center1{
+  justify-content: center;
+}
+.items-center1{
+  align-items: center;
+}
+</style>

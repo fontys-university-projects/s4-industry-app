@@ -2,7 +2,7 @@
 
     <div class="flex items-center justify-center min-h-screen container max-auto">
       <!-- grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-center grid">
         <!-- card -->
         <div class="card" v-for="stone in stones" :key="stone.name">
           <div class="p-5 flex flex-col">
@@ -11,7 +11,7 @@
             </div>
             <h5 class="text-2xl md:text-3xl font-medium mt-3">{{ stone.name }} </h5>
             <p class="text-slate-500 text-lg mt-3"> {{ stone.address }}</p>
-            <a @click="open = true"  href="#" class="text-center bg-blue-400 text-blue-700 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out">view details</a>
+            <a @click="open = true"  href="#" class="text-center bg-brown text-color py-2 rounded-lg font-semibold mt-4 hover:bg-brown-light focus:scale-95 transition-all duration-200 ease-out">view details</a>
           </div>
         </div>
         <!-- end card -->
@@ -25,24 +25,24 @@
       </TransitionChild>
 
       <div class="fixed inset-0 z-10 overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+        <div class="popup flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <DialogPanel class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-              <div>
-                <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <CheckIcon class="h-6 w-6 text-green-600" aria-hidden="true" />
-                </div>
-                <div class="mt-3 text-center sm:mt-5">
-                  <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">Payment successful</DialogTitle>
-                  <div class="mt-2">
-                    <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius aliquam laudantium explicabo pariatur iste dolorem animi vitae error totam. At sapiente aliquam accusamus facere veritatis.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-                <button type="button" class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 sm:col-start-2" @click="open = false">Deactivate</button>
-                <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0" @click="open = false" ref="cancelButtonRef">Close</button>
-              </div>
+              <div class="card" v-for="stone in viewDetailStones" :key="stone.name">
+                <div class="info p-5 flex flex-col">
+  <div class="image rounded-xl overflow-hidden">
+    <img :src="stone.image" alt=""/>
+  </div>
+  <h5 class="text-2xl md:text-3xl font-medium mt-3">{{ stone.name }}</h5>
+  <p class="text-slate-500 text-lg mt-3 font-semibold"><span>Address:</span> {{ stone.address }}</p>
+  <p class="text-slate-500 text-lg mt-3 font-semibold"><span>Date of Birth:</span> {{ stone.dateOfBirth }}</p>
+  <p class="text-slate-500 text-lg mt-3 font-semibold"><span>Date of Passing:</span> {{ stone.dateOfPassing }}</p>
+  <p class="text-slate-500 text-lg mt-3 font-semibold"><span>Reason of Passing:</span> {{ stone.reasonOfPassing }}</p>
+  <a @click="redirectToStonesView" href="#" class="text-center bg-brown text-color py-2 rounded-lg font-semibold mt-4 hover:bg-brown-light focus:scale-95 transition-all duration-200 ease-out">Close</a>
+</div>
+
+        </div>
+              
             </DialogPanel>
           </TransitionChild>
         </div>
@@ -54,6 +54,10 @@
   
   
   <script setup>
+
+const redirectToStonesView = () => {
+    window.location.href = '/stones';
+  };
   const stones = [
     {
       name: 'Alexander',
@@ -78,20 +82,58 @@
     },
 
   ]
+  const viewDetailStones = [
+    {
+      name: 'Alexander',
+      address: '1234 Main St, San Francisco, CA 94123',
+      dateOfBirth: '1jan',
+      dateOfPassing: '4jan',
+      reasonOfPassing:'lived',
+      link:"",
+      image:
+        'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+    },
+  ]
+
   import { ref } from 'vue'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { CheckIcon } from '@heroicons/vue/24/outline'
-// import {createStoneHtml} from '../stones.js'
-// import { stones } from '../stones_data.js'
 
 
-const open = ref(true)
+const open = ref(false)
   </script>
 
-<!-- <style>
-.featuredproperty .box-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+
+<style>
+.bg-brown{
+  background-color: rgb(164, 144, 124);
 }
-</style> -->
+.text-color{
+  background-color: rgb(200, 182, 166);
+}
+.hover\:bg-brown-light:hover {
+  background-color: rgba(241, 222, 201, 1);
+}
+span{
+  color: black;
+}
+.grid {
+  width: 60%;
+  display: grid;
+  height: fit-content;
+}
+.items-center {
+    align-items: flex-start;
+  }
+  
+  .justify-center {
+    justify-content: flex-start;
+  }
+  .popup{
+    justify-content: center;
+    text-align: center;
+  }
+  .image{
+    height: 35rem;
+  }
+</style>
