@@ -55,21 +55,3 @@
     </div>
   </div>
 </template>
-<script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Map', href: '#' },
-  { name: 'Search', href: '#' },
-  { name: 'Saved', href: '#' },
-]
-
-const mobileMenuOpen = ref(false)
-
-const redirectToFeatures = () => {
-  router.push('/features')
-}
-</script>

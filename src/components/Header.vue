@@ -56,9 +56,10 @@
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Map', href: '#' },
-    { name: 'Search', href: '#' },
+    { name: 'Stones', href: '/stones' },
     { name: 'Saved', href: '#' },
   ]
   
   const mobileMenuOpen = ref(false)
   </script>
+  

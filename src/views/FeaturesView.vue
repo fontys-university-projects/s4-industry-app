@@ -17,13 +17,13 @@
             style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
           ></div>
         </div>
-        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div class="hidden sm:mb-8 sm:flex sm:justify-center"></div>
-          <div class="text-center">
+        <div class="mx-auto max-w-[57rem] mt-8 mb-8" >
+          <div class="hidden sm:mb-8 sm:flex sm:justify-center "></div>
+          <div class="text-center mt-8">
             <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Info
             </h1>
-            <p class="mt-6 text-lg leading-8 text-gray-300 w-f">
+            <p class="mt-6 text-lg leading-8 text-gray-300 ">
                 Stolpersteine are small brass plaques embedded in the pavement that commemorate the victims of Nazi persecution. They are also known as "stumbling stones" or "stumbling blocks", because they make us stumble with our heads and hearts. They are part of a project by the German artist Gunter Demnig, who started placing them in 1992.
 
 There are more than 90,000 Stolpersteine in Europe, and almost 13,000 in Belgium and the Netherlands. The Stichting 18 September in Eindhoven has created a website and an app that collect and display information about all the Dutch and Belgian Stolpersteine. The site was launched in early 2019 and is still growing. It currently covers more than two hundred municipalities.
@@ -40,21 +40,10 @@ The goal of the Stichting 18 September is to keep the memory of the victims aliv
     </div>
     
   </template>
-  <script setup>
-  import { ref } from 'vue'
-  import { useRouter } from 'vue-router'
-  
-  const router = useRouter()
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Map', href: '#' },
-    { name: 'Search', href: '#' },
-    { name: 'Saved', href: '#' },
-  ]
-  
-  const mobileMenuOpen = ref(false)
-  
-  const redirectToFeatures = () => {
-    router.push('/features')
-  }
-  </script>
+
+<style scoped>
+.brightness-50 {
+  --tw-brightness: brightness(.2);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+</style>
