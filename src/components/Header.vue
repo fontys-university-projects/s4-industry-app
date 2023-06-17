@@ -17,7 +17,30 @@
           <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-sm font-semibold leading-6 text-gray-900">{{ item.name }}</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Language <span aria-hidden="true">&rarr;</span></a>
+          <Menu as="div" class="relative inline-block text-left">
+    <div>
+      <MenuButton class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+        Language
+        <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+      </MenuButton>
+    </div>
+
+    <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+      <MenuItems class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div class="py-1">
+          <MenuItem v-slot="{ active }">
+            <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">🇬🇧 English</a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">🇳🇱 Netherlands</a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">🇫🇷 Français</a>
+          </MenuItem>
+        </div>
+      </MenuItems>
+    </transition>
+  </Menu>
         </div>
       </nav>
       <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
@@ -52,10 +75,12 @@
   import { ref } from 'vue'
   import { Dialog, DialogPanel } from '@headlessui/vue'
   import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+  import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+  import { ChevronDownIcon } from '@heroicons/vue/20/solid'
   import Logo from './icons/Logo.vue'
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Map', href: '#' },
+    { name: 'Map', href: '/map' },
     { name: 'Stones', href: '/stones' },
     { name: 'Saved', href: '#' },
   ]
